@@ -1,0 +1,1 @@
+### Change the values of variables.sh with information from your Clusters and Google Cloud projects
