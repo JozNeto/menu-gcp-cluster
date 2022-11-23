@@ -3,9 +3,7 @@
 . ./functions.sh
 . ./variables.sh
 
-
-
-
+# Main menu
 x="menu"
 menu ()
 {
@@ -40,93 +38,35 @@ case "$x" in
 
 
     1)
-      echo "Connecting $PROJECT_DEV Project"
-      set-project $PROJECT_DEV &> $SILENCE
-      check-project-connection $PROJECT_DEV 2> $SILENCE
-      echo
-      echo "Connecting $C1 Cluster"
-      set-credential $R1 $C1 &> $SILENCE
-      check-cluster-connection $C1 $PROJECT_DEV 2> $SILENCE
-      sleep 3
-
+      menu-options $PROJECT_DEV $SILENCE $C1 $R1
 echo "================================================"
 ;;
     2)
-      echo "Connecting $PROJECT_DEV"
-      set-project $PROJECT_DEV &> $SILENCE
-      check-project-connection $PROJECT_DEV 2> $SILENCE
-      echo
-      echo "Connecting $C2 Cluster"
-      set-credential $R2 $C2 &> $SILENCE
-      check-connection $C2 $PROJECT_DEV 2> $SILENCE
-      sleep 3
-
+      menu-options $PROJECT_DEV $SILENCE $C2 $R2
 echo "================================================"
 ;;
    3)
-      echo "Connecting $PROJECT_DEV"
-      set-project $PROJECT_DEV &> $SILENCE
-      check-project-connection $PROJECT_DEV 2> $SILENCE
-      echo
-      echo "Connecting $C3 Cluster"
-      set-credential $R3 $C3 &> $SILENCE
-      check-connection $C3 $PROJECT_DEV 2> $SILENCE
-      sleep 3
-
+      menu-options $PROJECT_DEV $SILENCE $C3 $R3
 echo "================================================"
 ;;
     4)
-       echo "Connecting $PROJECT_PROD "
-       set-project $PROJECT_PROD &> $SILENCE
-       check-project-connection $PROJECT_PROD 2> $SILENCE
-       echo
-       echo "Connecting $C4 Cluster"
-       set-credential $R3 $C4 &> $SILENCE
-       check-connection $C4 $PROJECT_PROD 2> $SILENCE
-       sleep 3
+       menu-options $PROJECT_PROD $SILENCE $C4 $R3
 echo "================================================"
 ;;
      5)
-       echo "Connecting $PROJECT_PROD"
-       set-project $PROJECT_PROD &> $SILENCE
-       check-project-connection $PROJECT_PROD 2> $SILENCE
-       echo
-       echo "Connecting $C5 Cluster"
-       set-credential $R1 $C5 &> $SILENCE
-       check-connection $C5 $PROJECT_PROD 2> $SILENCE
-       sleep 3
+       menu-options $PROJECT_PROD $SILENCE $C5 $R1
 echo "================================================"
 ;;
     6)
-      echo "Connecting $PROJECT_STG"
-      set-project $PROJECT_STG &> $SILENCE
-      check-project-connection $PROJECT_STG 2> $SILENCE
-      echo
-      echo "Connecting $C6 Cluster"
-      set-credential $R3 $C6 &> $SILENCE
-      check-connection $C6 $PROJECT_STG 2> $SILENCE
-      sleep 3
-
+      menu-options $PROJECT_STG $SILENCE $C6 $R3
 echo "================================================"
  ;;
     7)
-      echo "Connecting $PROJECT_STG"
-      set-project $PROJECT_STG &> $SILENCE
-      check-project-connection $PROJECT_STG 2> $SILENCE
-      echo
-      echo "Connecting $C7 Cluster"
-      set-credential $R1 $C7 &> $SILENCE
-      check-connection $C7 $PROJECT_STG 2> $SILENCE
-      sleep 3
-
+      menu-options $PROJECT_STG $SILENCE $C7 $R1
 echo "================================================"
 ;;
     8)
-      echo "exiting..."
-      sleep 3
-      clear;
-      exit;
-
+      exiting
 echo "================================================"
 ;;
 
